@@ -1,0 +1,7 @@
+{
+  "2026-11-01": {
+    "18:00": {"asset_id": "EXISTING-01", "status": "confirmed"},
+    "20:00": {"asset_id": "EXISTING-02", "status": "confirmed"}
+  }
+}
+

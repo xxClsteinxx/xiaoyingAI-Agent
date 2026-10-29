@@ -1,0 +1,38 @@
+{
+  "M01": {
+    "id": "M01",
+    "title": "秋日穿搭短视频",
+    "type": "video",
+    "duration_seconds": 25,
+    "copyright_proof": true,
+    "sensitive_words": [],
+    "target_channel": "douyin"
+  },
+  "M02": {
+    "id": "M02",
+    "title": "新品预告",
+    "type": "video",
+    "duration_seconds": 42,
+    "copyright_proof": true,
+    "sensitive_words": [],
+    "target_channel": "douyin"
+  },
+  "M03": {
+    "id": "M03",
+    "title": "健康产品介绍",
+    "type": "video",
+    "duration_seconds": 30,
+    "copyright_proof": true,
+    "sensitive_words": ["绝对有效"],
+    "target_channel": "douyin"
+  },
+  "M04": {
+    "id": "M04",
+    "title": "未完成素材",
+    "type": "video",
+    "duration_seconds": 15,
+    "copyright_proof": true,
+    "sensitive_words": []
+  }
+}
+

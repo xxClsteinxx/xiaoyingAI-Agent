@@ -1,0 +1,10 @@
+{
+  "request_id": "REQ-RISK-001",
+  "asset_id": "M03",
+  "publish_date": "2026-11-01",
+  "required_time": "17:00",
+  "hard_time_requirement": false,
+  "alternative_times": [
+    "19:00"
+  ]
+}

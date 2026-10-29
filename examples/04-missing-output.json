@@ -1,0 +1,81 @@
+{
+  "request_id": "REQ-MISSING-001",
+  "status": "needs_information",
+  "message": "素材必填信息缺失，阻断排期",
+  "model": "offline-policy-mock",
+  "real_model": false,
+  "max_steps": 6,
+  "steps_used": 3,
+  "result": {
+    "asset_id": "M04",
+    "review_status": "incomplete",
+    "risk_reasons": [],
+    "missing_fields": [
+      "target_channel"
+    ],
+    "requested_slot": "2026-11-01 17:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_applicable",
+    "draft_save": {
+      "attempted": false,
+      "saved": false,
+      "duplicate": false,
+      "draft_id": null,
+      "error": null
+    },
+    "published": false
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_asset",
+      "tool_parameters": {
+        "asset_id": "M04"
+      },
+      "return_summary": {
+        "ok": true,
+        "asset_id": "M04",
+        "fields": [
+          "copyright_proof",
+          "duration_seconds",
+          "id",
+          "sensitive_words",
+          "title",
+          "type"
+        ]
+      },
+      "next_action": "check_rules",
+      "decision_basis": "先读取素材元数据"
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "tool_parameters": {
+        "asset_id": "M04"
+      },
+      "return_summary": {
+        "ok": true,
+        "review_status": "incomplete",
+        "missing_fields": [
+          "target_channel"
+        ],
+        "risks": []
+      },
+      "next_action": "finish",
+      "decision_basis": "元数据已读取，执行审核规则"
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "tool_parameters": {
+        "status": "needs_information",
+        "message": "素材必填信息缺失，阻断排期"
+      },
+      "return_summary": {
+        "completed": true
+      },
+      "next_action": null,
+      "decision_basis": "missing_metadata"
+    }
+  ]
+}

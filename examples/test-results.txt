@@ -1,0 +1,20 @@
+$ python -m unittest discover -s tests -v
+
+test_conflict_changes_to_available_slot_and_requires_confirmation (test_agent.SchedulingAgentTest) ... ok
+test_duplicate_submission_reuses_one_draft (test_agent.SchedulingAgentTest) ... ok
+test_hard_requirement_is_not_changed (test_agent.SchedulingAgentTest) ... ok
+test_missing_metadata_blocks_before_slot_query (test_agent.SchedulingAgentTest) ... ok
+test_normal_schedule_saves_draft (test_agent.SchedulingAgentTest) ... ok
+test_rule_risk_blocks_draft (test_agent.SchedulingAgentTest) ... ok
+test_save_failure_is_explicit (test_agent.SchedulingAgentTest) ... ok
+test_step_limit_returns_incomplete (test_agent.SchedulingAgentTest) ... ok
+test_trace_has_required_audit_fields (test_agent.SchedulingAgentTest) ... ok
+test_cannot_save_unapproved_asset (test_tools.GuardrailTest) ... ok
+test_changed_time_must_be_pending_confirmation (test_tools.GuardrailTest) ... ok
+test_model_cannot_lie_about_review (test_tools.GuardrailTest) ... ok
+test_occupied_slot_cannot_be_saved (test_tools.GuardrailTest) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.041s
+
+OK

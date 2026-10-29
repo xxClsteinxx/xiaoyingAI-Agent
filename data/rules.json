@@ -1,0 +1,7 @@
+{
+  "required_fields": ["title", "type", "copyright_proof", "target_channel"],
+  "blocked_words": ["绝对有效", "百分百", "国家级"],
+  "max_video_seconds": 60,
+  "hard_risk_action": "block"
+}
+

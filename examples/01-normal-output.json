@@ -1,0 +1,128 @@
+{
+  "request_id": "REQ-NORMAL-001",
+  "status": "draft_saved",
+  "message": "草稿已保存；内容未发布",
+  "model": "offline-policy-mock",
+  "real_model": false,
+  "max_steps": 6,
+  "steps_used": 5,
+  "result": {
+    "asset_id": "M02",
+    "review_status": "approved",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "requested_slot": "2026-11-01 17:00",
+    "suggested_slot": "2026-11-01 17:00",
+    "confirmation_status": "not_required",
+    "draft_save": {
+      "attempted": true,
+      "saved": true,
+      "duplicate": false,
+      "draft_id": "DR-A3D004B53B",
+      "error": null
+    },
+    "published": false
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_asset",
+      "tool_parameters": {
+        "asset_id": "M02"
+      },
+      "return_summary": {
+        "ok": true,
+        "asset_id": "M02",
+        "fields": [
+          "copyright_proof",
+          "duration_seconds",
+          "id",
+          "sensitive_words",
+          "target_channel",
+          "title",
+          "type"
+        ]
+      },
+      "next_action": "check_rules",
+      "decision_basis": "先读取素材元数据"
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "tool_parameters": {
+        "asset_id": "M02"
+      },
+      "return_summary": {
+        "ok": true,
+        "review_status": "approved",
+        "missing_fields": [],
+        "risks": []
+      },
+      "next_action": "query_slots",
+      "decision_basis": "元数据已读取，执行审核规则"
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "tool_parameters": {
+        "publish_date": "2026-11-01",
+        "requested_time": "17:00",
+        "alternative_times": [
+          "18:00",
+          "19:00"
+        ]
+      },
+      "return_summary": {
+        "ok": true,
+        "publish_date": "2026-11-01",
+        "requested_time": "17:00",
+        "requested_available": true,
+        "conflict": null,
+        "available_alternatives": [
+          "19:00"
+        ],
+        "occupied_alternatives": [
+          "18:00"
+        ]
+      },
+      "next_action": "save_draft",
+      "decision_basis": "审核通过，检查要求时段和备选时段"
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "tool_parameters": {
+        "request_id": "REQ-NORMAL-001",
+        "asset_id": "M02",
+        "publish_date": "2026-11-01",
+        "proposed_time": "17:00",
+        "requested_time": "17:00",
+        "review_status": "approved",
+        "confirmation_status": "not_required"
+      },
+      "return_summary": {
+        "ok": true,
+        "saved": true,
+        "duplicate": false,
+        "draft_id": "DR-A3D004B53B",
+        "state": "draft",
+        "published": false
+      },
+      "next_action": "finish",
+      "decision_basis": "要求时段可用，保存无需额外确认的草稿"
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "tool_parameters": {
+        "status": "draft_saved",
+        "message": "草稿已保存；内容未发布"
+      },
+      "return_summary": {
+        "completed": true
+      },
+      "next_action": null,
+      "decision_basis": "draft_only"
+    }
+  ]
+}

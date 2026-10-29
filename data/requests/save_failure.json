@@ -1,0 +1,9 @@
+{
+  "request_id": "REQ-SAVE-FAIL-001",
+  "asset_id": "M02",
+  "publish_date": "2026-11-01",
+  "required_time": "19:00",
+  "hard_time_requirement": false,
+  "alternative_times": [],
+  "simulate_save_failure": true
+}

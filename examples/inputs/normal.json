@@ -1,0 +1,11 @@
+{
+  "request_id": "REQ-NORMAL-001",
+  "asset_id": "M02",
+  "publish_date": "2026-11-01",
+  "required_time": "17:00",
+  "hard_time_requirement": false,
+  "alternative_times": [
+    "18:00",
+    "19:00"
+  ]
+}

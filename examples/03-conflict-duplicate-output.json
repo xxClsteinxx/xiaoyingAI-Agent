@@ -1,0 +1,131 @@
+{
+  "request_id": "REQ-CONFLICT-001",
+  "status": "draft_exists",
+  "message": "检测到重复提交，复用已有草稿",
+  "model": "offline-policy-mock",
+  "real_model": false,
+  "max_steps": 6,
+  "steps_used": 5,
+  "result": {
+    "asset_id": "M01",
+    "review_status": "approved",
+    "risk_reasons": [],
+    "missing_fields": [],
+    "requested_slot": "2026-11-01 18:00",
+    "suggested_slot": "2026-11-01 19:00",
+    "confirmation_status": "pending_user_confirmation",
+    "draft_save": {
+      "attempted": true,
+      "saved": true,
+      "duplicate": true,
+      "draft_id": "DR-FDD93D34E9",
+      "error": null
+    },
+    "published": false
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "read_asset",
+      "tool_parameters": {
+        "asset_id": "M01"
+      },
+      "return_summary": {
+        "ok": true,
+        "asset_id": "M01",
+        "fields": [
+          "copyright_proof",
+          "duration_seconds",
+          "id",
+          "sensitive_words",
+          "target_channel",
+          "title",
+          "type"
+        ]
+      },
+      "next_action": "check_rules",
+      "decision_basis": "先读取素材元数据"
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "tool_parameters": {
+        "asset_id": "M01"
+      },
+      "return_summary": {
+        "ok": true,
+        "review_status": "approved",
+        "missing_fields": [],
+        "risks": []
+      },
+      "next_action": "query_slots",
+      "decision_basis": "元数据已读取，执行审核规则"
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "tool_parameters": {
+        "publish_date": "2026-11-01",
+        "requested_time": "18:00",
+        "alternative_times": [
+          "19:00",
+          "20:00"
+        ]
+      },
+      "return_summary": {
+        "ok": true,
+        "publish_date": "2026-11-01",
+        "requested_time": "18:00",
+        "requested_available": false,
+        "conflict": {
+          "asset_id": "EXISTING-01",
+          "status": "confirmed"
+        },
+        "available_alternatives": [
+          "19:00"
+        ],
+        "occupied_alternatives": [
+          "20:00"
+        ]
+      },
+      "next_action": "save_draft",
+      "decision_basis": "审核通过，检查要求时段和备选时段"
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "tool_parameters": {
+        "request_id": "REQ-CONFLICT-001",
+        "asset_id": "M01",
+        "publish_date": "2026-11-01",
+        "proposed_time": "19:00",
+        "requested_time": "18:00",
+        "review_status": "approved",
+        "confirmation_status": "pending_user_confirmation"
+      },
+      "return_summary": {
+        "ok": true,
+        "saved": true,
+        "duplicate": true,
+        "draft_id": "DR-FDD93D34E9",
+        "state": "draft",
+        "published": false
+      },
+      "next_action": "finish",
+      "decision_basis": "要求时段冲突，选择首个可用备选并标记待用户确认"
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "tool_parameters": {
+        "status": "draft_exists",
+        "message": "检测到重复提交，复用已有草稿"
+      },
+      "return_summary": {
+        "completed": true
+      },
+      "next_action": null,
+      "decision_basis": "idempotent_duplicate"
+    }
+  ]
+}

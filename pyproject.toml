@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "content-scheduling-agent"
+version = "1.0.0"
+description = "素材审核与发布排期 Agent"
+requires-python = ">=3.7"
+dependencies = []
+
